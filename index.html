@@ -2,368 +2,847 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Calendario de Ahorro 2026</title>
-  <!-- Tipografía -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Estilos externos -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app">
-    <header class="app-header">
-      <h1>Calendario de Ahorro <span class="year">2026</span></h1>
-      <div class="header-actions">
-        <button id="calc-year" class="btn btn-primary">Calcular total anual</button>
-        <div id="year-total" class="year-total">Total anual: <strong>0</strong></div>
+  <header class="app-header" role="banner">
+    <div class="header-inner">
+      <div class="title-wrap">
+        <span class="heart header-heart left" aria-hidden="true"></span>
+        <h1 id="main-title">Calendario de Ahorro 2026</h1>
+        <span class="heart header-heart right" aria-hidden="true"></span>
       </div>
-    </header>
 
-    <main class="months-grid">
-      <!-- Generamos los 12 meses: cada mes con data-month="enero" etc. -->
+      <div class="global-controls" role="region" aria-label="Controles globales">
+        <button id="calc-annual" class="btn neon-btn" type="button">Calcular total anual</button>
+        <div id="total-anual" class="total-annual" aria-live="polite">Total anual: $0.00</div>
+      </div>
+    </div>
+  </header>
 
-      <!-- Plantilla de mes -->
-      <!-- Repite para todos los meses (enero - diciembre) -->
+  <main id="main" class="main-grid" role="main">
+    <!-- Repetir 12 secciones: Enero - Diciembre -->
+    <section class="month" data-mes="1" id="mes-1" aria-labelledby="titulo-mes-1">
+      <h2 class="month-title" id="titulo-mes-1">
+        <span class="heart left" aria-hidden="true"></span>
+        Enero
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
 
-      <section class="month" data-month="Enero">
-        <div class="month-head">
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-1">Meta mensual ($)</label>
+          <input id="meta-mensual-1" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Enero" />
+        </div>
+
+
+        <div class="mes">
+          <span class="heart">❤</span>
           <h2>Enero</h2>
-          <span class="css-heart" aria-hidden="true"></span>
+          
+          <label>Meta mensual ($)</label>
+          <input type="number" class="meta" placeholder="Ej: 500">
+        
+          <label>Semanas</label>
+          <input type="number" class="semana" placeholder="Semana 1">
+          <input type="number" class="semana" placeholder="Semana 2">
+          <input type="number" class="semana" placeholder="Semana 3">
+          <input type="number" class="semana" placeholder="Semana 4">
+        
+          <label>Nombre meta (opcional)</label>
+          <input type="text" class="nombre-meta" placeholder="Ej: Fondo emergente">
+        
+          <label>Valor meta ($)</label>
+          <input type="number" class="valor-meta" placeholder="Ej: 2000">
+        
+          <label>Hasta (mes)</label>
+          <select class="hasta-mes">
+            <option>Sin meta</option>
+            <option>Febrero</option>
+            <option>Marzo</option>
+            <option>Abril</option>
+            <option>Mayo</option>
+            <option>Junio</option>
+            <option>Julio</option>
+            <option>Agosto</option>
+            <option>Septiembre</option>
+            <option>Octubre</option>
+            <option>Noviembre</option>
+            <option>Diciembre</option>
+          </select>
+        
+          <button class="calcular">Calcular total mensual</button>
+        
+          <p class="total">Total mes: $0.00</p>
+        
+          <!-- Nueva barra de progreso -->
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
+        
+          <!-- Frases motivacionales y dinámicas -->
+          <p class="frase">En enero enciendo la intención, una luz pequeña que sabe llegar.</p>
+          <p class="frase-dinamica"></p>
         </div>
+        
 
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
 
-        <div class="weeks">
-          <div class="week-row">
-            <div class="week-title">Semana 1</div>
-            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
-            <div class="col-label">Meta</div>
-            <div class="col-label">Ahorrado</div>
+
+
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Enero">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Enero" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Enero" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Enero" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Enero" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Enero">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Enero" placeholder="Ej. Celular">
+            </label>
           </div>
 
-          <div class="week-row">
-            <div class="week-title">Semana 2</div>
-            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
-            <div class="col-label">Meta</div>
-            <div class="col-label">Ahorrado</div>
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Enero" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Enero" placeholder="Ej. Marzo">
+            </label>
           </div>
 
-          <div class="week-row">
-            <div class="week-title">Semana 3</div>
-            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
-            <div class="col-label">Meta</div>
-            <div class="col-label">Ahorrado</div>
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Enero">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">En enero enciendo la intención, una luz pequeña que sabe llegar.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="2" id="mes-2" aria-labelledby="titulo-mes-2">
+      <h2 class="month-title" id="titulo-mes-2">
+        <span class="heart left" aria-hidden="true"></span>
+        Febrero
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-2">Meta mensual ($)</label>
+          <input id="meta-mensual-2" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Febrero" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Febrero">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Febrero" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Febrero" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Febrero" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Febrero" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Febrero">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Febrero" placeholder="Ej. Viaje">
+            </label>
           </div>
 
-          <div class="week-row">
-            <div class="week-title">Semana 4</div>
-            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
-            <div class="col-label">Meta</div>
-            <div class="col-label">Ahorrado</div>
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Febrero" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Febrero" placeholder="Ej. Abril">
+            </label>
           </div>
 
-          <div class="week-row">
-            <div class="week-title">Semana 5</div>
-            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
-            <div class="col-label">Meta</div>
-            <div class="col-label">Ahorrado</div>
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Febrero">
+            <div class="progreso-fill" style="width:0%"></div>
           </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
         </div>
 
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Pequeños pasos crean grandes resultados.</p>
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
         </div>
-      </section>
 
-      <!-- --- Febrero --- -->
-      <section class="month" data-month="Febrero">
-        <div class="month-head">
-          <h2>Febrero</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Comienza el año ahorrando, no esperando.</p>
-        </div>
-      </section>
+        <p class="frase">En febrero cultivo paciencia y recojo pequeñas constancias.</p>
+      </div>
+    </section>
 
-      <!-- --- Marzo --- -->
-      <section class="month" data-month="Marzo">
-        <div class="month-head">
-          <h2>Marzo</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Tu constancia vale más que la cantidad.</p>
-        </div>
-      </section>
+    <section class="month" data-mes="3" id="mes-3" aria-labelledby="titulo-mes-3">
+      <h2 class="month-title" id="titulo-mes-3">
+        <span class="heart left" aria-hidden="true"></span>
+        Marzo
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
 
-      <!-- --- Abril --- -->
-      <section class="month" data-month="Abril">
-        <div class="month-head">
-          <h2>Abril</h2>
-          <span class="css-heart" aria-hidden="true"></span>
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-3">Meta mensual ($)</label>
+          <input id="meta-mensual-3" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Marzo" />
         </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Ahorra hoy lo que tu futuro agradecerá.</p>
-        </div>
-      </section>
 
-      <!-- --- Mayo --- -->
-      <section class="month" data-month="Mayo">
-        <div class="month-head">
-          <h2>Mayo</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Cada moneda cuenta.</p>
-        </div>
-      </section>
+        <fieldset class="weeks" aria-label="Ahorros semanales Marzo">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Marzo" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Marzo" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Marzo" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Marzo" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
 
-      <!-- --- Junio --- -->
-      <section class="month" data-month="Junio">
-        <div class="month-head">
-          <h2>Junio</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Ahorra con intención.</p>
-        </div>
-      </section>
+        <div class="acumulativa" aria-label="Meta acumulativa Marzo">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Marzo" placeholder="Ej. Fondo emergencia">
+            </label>
+          </div>
 
-      <!-- --- Julio --- -->
-      <section class="month" data-month="Julio">
-        <div class="month-head">
-          <h2>Julio</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Suma esfuerzos, no excusas.</p>
-        </div>
-      </section>
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Marzo" step="0.01" min="0">
+            </label>
 
-      <!-- --- Agosto --- -->
-      <section class="month" data-month="Agosto">
-        <div class="month-head">
-          <h2>Agosto</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Construye tu tranquilidad financiera.</p>
-        </div>
-      </section>
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Marzo" placeholder="Ej. Junio">
+            </label>
+          </div>
 
-      <!-- --- Septiembre --- -->
-      <section class="month" data-month="Septiembre">
-        <div class="month-head">
-          <h2>Septiembre</h2>
-          <span class="css-heart" aria-hidden="true"></span>
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Marzo">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
         </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Lo importante es empezar.</p>
-        </div>
-      </section>
 
-      <!-- --- Octubre --- -->
-      <section class="month" data-month="Octubre">
-        <div class="month-head">
-          <h2>Octubre</h2>
-          <span class="css-heart" aria-hidden="true"></span>
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
         </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Pequeños hábitos, grandes frutos.</p>
-        </div>
-      </section>
 
-      <!-- --- Noviembre --- -->
-      <section class="month" data-month="Noviembre">
-        <div class="month-head">
-          <h2>Noviembre</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Fuerte hoy, libre mañana.</p>
-        </div>
-      </section>
+        <p class="frase">Marzo aprueba el paso, y con cada moneda el deseo se hace hábito.</p>
+      </div>
+    </section>
 
-      <!-- --- Diciembre --- -->
-      <section class="month" data-month="Diciembre">
-        <div class="month-head">
-          <h2>Diciembre</h2>
-          <span class="css-heart" aria-hidden="true"></span>
-        </div>
-        <div class="month-controls">
-          <label class="meta-label">Meta mensual:
-            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
-          </label>
-          <button class="btn calc-month">Calcular total</button>
-        </div>
-        <div class="weeks">
-          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
-        </div>
-        <div class="month-footer">
-          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
-          <p class="motivation">Termina el año celebrando tu disciplina.</p>
-        </div>
-      </section>
+    <section class="month" data-mes="4" id="mes-4" aria-labelledby="titulo-mes-4">
+      <h2 class="month-title" id="titulo-mes-4">
+        <span class="heart left" aria-hidden="true"></span>
+        Abril
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
 
-    </main>
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-4">Meta mensual ($)</label>
+          <input id="meta-mensual-4" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Abril" />
+        </div>
 
-    <footer class="app-footer">
-      <small>© 2026 Calendario de Ahorro — Diseñado por Luis</small>
-    </footer>
-  </div>
+        <fieldset class="weeks" aria-label="Ahorros semanales Abril">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Abril" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Abril" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Abril" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Abril" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
 
-  <!-- Script funcional -->
-  <script src="script.js"></script>
+        <div class="acumulativa" aria-label="Meta acumulativa Abril">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Abril" placeholder="Ej. Taller">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Abril" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Abril" placeholder="Ej. Julio">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Abril">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Abril me recuerda que la constancia florece en pequeños gestos.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="5" id="mes-5" aria-labelledby="titulo-mes-5">
+      <h2 class="month-title" id="titulo-mes-5">
+        <span class="heart left" aria-hidden="true"></span>
+        Mayo
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-5">Meta mensual ($)</label>
+          <input id="meta-mensual-5" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Mayo" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Mayo">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Mayo" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Mayo" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Mayo" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Mayo" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Mayo">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Mayo" placeholder="Ej. Curso">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Mayo" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Mayo" placeholder="Ej. Agosto">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Mayo">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Mayo guarda los pasos seguros: cada moneda un latido más firme.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="6" id="mes-6" aria-labelledby="titulo-mes-6">
+      <h2 class="month-title" id="titulo-mes-6">
+        <span class="heart left" aria-hidden="true"></span>
+        Junio
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-6">Meta mensual ($)</label>
+          <input id="meta-mensual-6" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Junio" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Junio">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Junio" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Junio" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Junio" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Junio" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Junio">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Junio" placeholder="Ej. Retiro">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Junio" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Junio" placeholder="Ej. Diciembre">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Junio">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Junio invita a medir el avance con ternura y transparencia.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="7" id="mes-7" aria-labelledby="titulo-mes-7">
+      <h2 class="month-title" id="titulo-mes-7">
+        <span class="heart left" aria-hidden="true"></span>
+        Julio
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-7">Meta mensual ($)</label>
+          <input id="meta-mensual-7" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Julio" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Julio">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Julio" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Julio" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Julio" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Julio" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Julio">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Julio" placeholder="Ej. Reparación">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Julio" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Julio" placeholder="Ej. Septiembre">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Julio">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Julio celebra los pequeños acuerdos con el futuro.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="8" id="mes-8" aria-labelledby="titulo-mes-8">
+      <h2 class="month-title" id="titulo-mes-8">
+        <span class="heart left" aria-hidden="true"></span>
+        Agosto
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-8">Meta mensual ($)</label>
+          <input id="meta-mensual-8" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Agosto" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Agosto">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Agosto" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Agosto" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Agosto" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Agosto" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Agosto">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Agosto" placeholder="Ej. Ahorro hogar">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Agosto" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Agosto" placeholder="Ej. Octubre">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Agosto">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Agosto me recuerda que la constancia gana poco a poco.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="9" id="mes-9" aria-labelledby="titulo-mes-9">
+      <h2 class="month-title" id="titulo-mes-9">
+        <span class="heart left" aria-hidden="true"></span>
+        Septiembre
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-9">Meta mensual ($)</label>
+          <input id="meta-mensual-9" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Septiembre" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Septiembre">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Septiembre" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Septiembre" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Septiembre" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Septiembre" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Septiembre">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Septiembre" placeholder="Ej. Equipo">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Septiembre" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Septiembre" placeholder="Ej. Noviembre">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Septiembre">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Septiembre es la cifra que susurra: sigue, suma, respira.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="10" id="mes-10" aria-labelledby="titulo-mes-10">
+      <h2 class="month-title" id="titulo-mes-10">
+        <span class="heart left" aria-hidden="true"></span>
+        Octubre
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-10">Meta mensual ($)</label>
+          <input id="meta-mensual-10" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Octubre" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Octubre">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Octubre" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Octubre" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Octubre" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Octubre" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Octubre">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Octubre" placeholder="Ej. Consola">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Octubre" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Octubre" placeholder="Ej. Diciembre">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Octubre">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Octubre guarda la labor hecha, y la devuelve en calma.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="11" id="mes-11" aria-labelledby="titulo-mes-11">
+      <h2 class="month-title" id="titulo-mes-11">
+        <span class="heart left" aria-hidden="true"></span>
+        Noviembre
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-11">Meta mensual ($)</label>
+          <input id="meta-mensual-11" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Noviembre" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Noviembre">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Noviembre" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Noviembre" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Noviembre" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Noviembre" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Noviembre">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Noviembre" placeholder="Ej. Regalo">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Noviembre" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Noviembre" placeholder="Ej. Enero">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Noviembre">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Noviembre da espacio para mirar cuánto se ha sembrado.</p>
+      </div>
+    </section>
+
+    <section class="month" data-mes="12" id="mes-12" aria-labelledby="titulo-mes-12">
+      <h2 class="month-title" id="titulo-mes-12">
+        <span class="heart left" aria-hidden="true"></span>
+        Diciembre
+        <span class="heart right" aria-hidden="true"></span>
+      </h2>
+
+      <div class="card">
+        <div class="form-row">
+          <label for="meta-mensual-12">Meta mensual ($)</label>
+          <input id="meta-mensual-12" class="meta-mensual" type="number" min="0" step="0.01" aria-label="Meta mensual Diciembre" />
+        </div>
+
+        <fieldset class="weeks" aria-label="Ahorros semanales Diciembre">
+          <legend>Semanas</legend>
+          <div class="weeks-grid">
+            <label>Semana 1
+              <input type="number" class="week-input" data-week="1" aria-label="Semana 1 Diciembre" step="0.01" min="0">
+            </label>
+            <label>Semana 2
+              <input type="number" class="week-input" data-week="2" aria-label="Semana 2 Diciembre" step="0.01" min="0">
+            </label>
+            <label>Semana 3
+              <input type="number" class="week-input" data-week="3" aria-label="Semana 3 Diciembre" step="0.01" min="0">
+            </label>
+            <label>Semana 4
+              <input type="number" class="week-input" data-week="4" aria-label="Semana 4 Diciembre" step="0.01" min="0">
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="acumulativa" aria-label="Meta acumulativa Diciembre">
+          <div class="form-row">
+            <label>Nombre meta (opcional)
+              <input type="text" class="meta-name" aria-label="Nombre meta acumulativa Diciembre" placeholder="Ej. Fiesta">
+            </label>
+          </div>
+
+          <div class="form-row two-cols">
+            <label>Valor meta ($)
+              <input type="number" class="meta-value" aria-label="Valor meta acumulativa Diciembre" step="0.01" min="0">
+            </label>
+
+            <label>Hasta (mes)
+              <input type="text" class="meta-until" aria-label="Mes objetivo meta acumulativa Diciembre" placeholder="Ej. Marzo">
+            </label>
+          </div>
+
+          <div class="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso meta acumulativa Diciembre">
+            <div class="progreso-fill" style="width:0%"></div>
+          </div>
+          <div class="estado-meta" aria-live="polite">Sin meta</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn calc-month" type="button">Calcular total mensual</button>
+          <div class="total-mes" aria-live="polite">Total mes: $0.00</div>
+        </div>
+
+        <p class="frase">Diciembre es un cierre que guarda gratitud y cuentas claras.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <p>Diseñado para llevar un registro tierno y preciso de tu ahorro — 2026.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
+<link rel="stylesheet" href="style.css">
 </html>
