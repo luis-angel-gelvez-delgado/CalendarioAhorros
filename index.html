@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendario de Ahorro 2026</title>
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Calendario de Ahorro <span class="year">2026</span></h1>
+      <div class="header-actions">
+        <button id="calc-year" class="btn btn-primary">Calcular total anual</button>
+        <div id="year-total" class="year-total">Total anual: <strong>0</strong></div>
+      </div>
+    </header>
+
+    <main class="months-grid">
+      <!-- Generamos los 12 meses: cada mes con data-month="enero" etc. -->
+
+      <!-- Plantilla de mes -->
+      <!-- Repite para todos los meses (enero - diciembre) -->
+
+      <section class="month" data-month="Enero">
+        <div class="month-head">
+          <h2>Enero</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+
+        <div class="weeks">
+          <div class="week-row">
+            <div class="week-title">Semana 1</div>
+            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
+            <div class="col-label">Meta</div>
+            <div class="col-label">Ahorrado</div>
+          </div>
+
+          <div class="week-row">
+            <div class="week-title">Semana 2</div>
+            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
+            <div class="col-label">Meta</div>
+            <div class="col-label">Ahorrado</div>
+          </div>
+
+          <div class="week-row">
+            <div class="week-title">Semana 3</div>
+            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
+            <div class="col-label">Meta</div>
+            <div class="col-label">Ahorrado</div>
+          </div>
+
+          <div class="week-row">
+            <div class="week-title">Semana 4</div>
+            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
+            <div class="col-label">Meta</div>
+            <div class="col-label">Ahorrado</div>
+          </div>
+
+          <div class="week-row">
+            <div class="week-title">Semana 5</div>
+            <input type="number" class="week-input" placeholder="0" step="0.01" min="0">
+            <div class="col-label">Meta</div>
+            <div class="col-label">Ahorrado</div>
+          </div>
+        </div>
+
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Pequeños pasos crean grandes resultados.</p>
+        </div>
+      </section>
+
+      <!-- --- Febrero --- -->
+      <section class="month" data-month="Febrero">
+        <div class="month-head">
+          <h2>Febrero</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Comienza el año ahorrando, no esperando.</p>
+        </div>
+      </section>
+
+      <!-- --- Marzo --- -->
+      <section class="month" data-month="Marzo">
+        <div class="month-head">
+          <h2>Marzo</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Tu constancia vale más que la cantidad.</p>
+        </div>
+      </section>
+
+      <!-- --- Abril --- -->
+      <section class="month" data-month="Abril">
+        <div class="month-head">
+          <h2>Abril</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Ahorra hoy lo que tu futuro agradecerá.</p>
+        </div>
+      </section>
+
+      <!-- --- Mayo --- -->
+      <section class="month" data-month="Mayo">
+        <div class="month-head">
+          <h2>Mayo</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Cada moneda cuenta.</p>
+        </div>
+      </section>
+
+      <!-- --- Junio --- -->
+      <section class="month" data-month="Junio">
+        <div class="month-head">
+          <h2>Junio</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Ahorra con intención.</p>
+        </div>
+      </section>
+
+      <!-- --- Julio --- -->
+      <section class="month" data-month="Julio">
+        <div class="month-head">
+          <h2>Julio</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Suma esfuerzos, no excusas.</p>
+        </div>
+      </section>
+
+      <!-- --- Agosto --- -->
+      <section class="month" data-month="Agosto">
+        <div class="month-head">
+          <h2>Agosto</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Construye tu tranquilidad financiera.</p>
+        </div>
+      </section>
+
+      <!-- --- Septiembre --- -->
+      <section class="month" data-month="Septiembre">
+        <div class="month-head">
+          <h2>Septiembre</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Lo importante es empezar.</p>
+        </div>
+      </section>
+
+      <!-- --- Octubre --- -->
+      <section class="month" data-month="Octubre">
+        <div class="month-head">
+          <h2>Octubre</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Pequeños hábitos, grandes frutos.</p>
+        </div>
+      </section>
+
+      <!-- --- Noviembre --- -->
+      <section class="month" data-month="Noviembre">
+        <div class="month-head">
+          <h2>Noviembre</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Fuerte hoy, libre mañana.</p>
+        </div>
+      </section>
+
+      <!-- --- Diciembre --- -->
+      <section class="month" data-month="Diciembre">
+        <div class="month-head">
+          <h2>Diciembre</h2>
+          <span class="css-heart" aria-hidden="true"></span>
+        </div>
+        <div class="month-controls">
+          <label class="meta-label">Meta mensual:
+            <input type="number" class="meta-input" placeholder="0" step="0.01" min="0">
+          </label>
+          <button class="btn calc-month">Calcular total</button>
+        </div>
+        <div class="weeks">
+          <div class="week-row"><div class="week-title">Semana 1</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 2</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 3</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 4</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+          <div class="week-row"><div class="week-title">Semana 5</div><input type="number" class="week-input" placeholder="0" step="0.01" min="0"></div>
+        </div>
+        <div class="month-footer">
+          <div class="month-total">Total ahorrado: <span class="total-value">0</span></div>
+          <p class="motivation">Termina el año celebrando tu disciplina.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <small>© 2026 Calendario de Ahorro — Diseñado por Luis</small>
+    </footer>
+  </div>
+
+  <!-- Script funcional -->
+  <script src="script.js"></script>
+</body>
+</html>
